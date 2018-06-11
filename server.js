@@ -23,3 +23,23 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb://localhost/articleLogger");
 
+//app.get ("/articles", function(req,res) {
+    axios.get("https://www.desiringgod.org/")
+    .then(function(response) {
+        var $ = cheerio.load(response.data);
+
+        $(".card--resource").each(function(i, element) {
+            var result = {};
+
+            result.title = $(this)
+                .children("h2")
+                .text();
+            result.link = $(this)
+                .children("a")
+                .attr("href");
+
+            console.log(result);
+        })
+    })
+//})
+
