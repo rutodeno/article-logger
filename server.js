@@ -32,10 +32,11 @@ mongoose.connect("mongodb://localhost/articleLogger");
             var result = {};
 
             result.title = $(this)
-                .children("h2")
+                .children("a")
+                .find("h2")
                 .text();
             result.link = $(this)
-                .children("a")
+                .children("a.card__shadow")
                 .attr("href");
 
             console.log(result);
