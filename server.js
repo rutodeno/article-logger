@@ -94,7 +94,7 @@ app.delete("/allarticles/:id", function(req,res) {
 })
 
 // posting Note
-app.post("/articles/:id", function(req,res) {
+app.post("/allarticles/:id", function(req,res) {
     db.Note.create(req.body)
     .then(function() {
         return db.Article.findOneAndUpdate({_id:red.params.id}, {note:dbNote._id}, {new: true})
