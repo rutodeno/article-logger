@@ -39,8 +39,16 @@ mongoose.connect("mongodb://localhost/articleLogger");
                 .children("a.card__shadow")
                 .attr("href");
 
-            console.log(result);
+            result.author =$(this)
+                .children("a")
+                .find(".card__author")
+                .text()
         })
     })
 //})
+
+
+
+
+
 
