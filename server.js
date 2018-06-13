@@ -61,7 +61,7 @@ app.get("/scrapps", function (req, res) {
         })
 })
 
-/*
+
 app.get("/allarticles", function(req, res) {
     db.Article.find({})
     .then(function(dbArticles) {
@@ -72,8 +72,40 @@ app.get("/allarticles", function(req, res) {
     });
 });
 
-*/
+app.get("/allarticles/:id", function(req,res) {
+    db.Article.find({_id:req.params.id})
+    .populate("note")
+    .then(function(newNote) {
+        res.json(newNote);
+    })
+    .catch(function(err) {
+        res.json(err)
+    })
+})
 
+app.delete("/allarticles/:id", function(req,res) {
+    db.Article.findOneAndRemove({_id:req.params.id})
+    .then(function(deletedArticle) {
+        res.json(deletedArticle)
+    })
+    .catch(function(err) {
+        res.json(err);
+    })
+})
+
+// posting Note
+app.post("/articles/:id", function(req,res) {
+    db.Note.create(req.body)
+    .then(function() {
+        return db.Article.findOneAndUpdate({_id:red.params.id}, {note:dbNote._id}, {new: true})
+    })
+    .then(function(data) {
+        res.json(data);
+    })
+    .catch(function(err) {
+        res.json(err);
+    })
+})
 
 
 app.listen(PORT, function() {
