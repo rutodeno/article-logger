@@ -12,7 +12,7 @@
     "url": "git+https://github.com/rutodeno/article-logger.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/rutodeno/article-logger/issues"
   },
@@ -23,5 +23,6 @@
     "express": "^4.16.3",
     "mongoose": "^5.1.4",
     "morgan": "^1.9.0"
-  }
+  },
+  "devDependencies": {}
 }
