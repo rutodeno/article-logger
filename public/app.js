@@ -27,4 +27,25 @@ $(document).on("click", "p", function() {
             $("#bodyinput").val(data.note.body);
         }
     });
-});
+}); 
+
+$(document).on("click", "#savenote", function() {
+    let thisId = $(this).attr("data-id");
+
+    $.ajax({
+        method: "POST",
+        url: "/allarticles/" +thisId,
+        data: {
+            title: $("#titleinput").val(),
+            body: $("#bodyinput").val()
+        }
+    })
+    .then(function(data) {
+        console.log(data);
+        $("#notes").empty();
+
+    });
+
+    $("#titleinput").val("");
+    $("#bodyinput").val("");
+})
