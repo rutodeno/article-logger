@@ -1,3 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    margin:  0px 0px 0px 0px;
+    max-width:  100%;
+
+}
+
+.col.s12.m12.l12 {
+    padding-left: 0px;
+    padding-right: 0px;
+} 
+
+.row { 
+    margin-bottom: 0px;
+}
+
 /*
 body {
     background-color: aquamarine
