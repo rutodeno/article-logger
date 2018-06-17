@@ -18,6 +18,45 @@
     margin-bottom: 0px;
 }
 
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav ul a, nav .brand-logo {
+    color: #e53935;
+
+}
+h5 {
+    text-align: center;
+}
+
+nav .brand-logo {
+    margin-left: 10px;
+}
+
+
+nav {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+}
+
+.page-footer {
+    background-color:#e53935;
+    color: black;
+    padding-bottom: 20px;
+    margin-top: 10px;   
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+
 /*
 body {
     background-color: aquamarine
