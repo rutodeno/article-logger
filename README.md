@@ -14,6 +14,12 @@
 ## Usage
   **Web Scrapper** assists users to review articles they like to save. The will have the ability to save, update and delete articles.
   The user can also place notes on the article. The notes will be useful when the user will be reviewing the list of articles in future.
+  
+## TO DOs
+- Replace text box with a modal
+- Add a delete button functionality
+- Deploy to heroku
+- Better front-end layout
 
 ## License
   MIT
