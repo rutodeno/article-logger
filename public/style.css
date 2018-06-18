@@ -30,15 +30,26 @@
 nav ul a, nav .brand-logo {
     color: #e53935;
 
+
 }
+
 h5 {
     text-align: center;
 }
 
 nav .brand-logo {
     margin-left: 10px;
+    font-size: 36px;
+
 }
 
+.btn, .btn-large, .btn-small {
+    background-color: #e53935;
+}
+
+textarea {
+    height: 100px;
+}
 
 nav {
    background-color: transparent;
