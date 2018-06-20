@@ -73,7 +73,7 @@ app.get("/allarticles", function(req, res) {
 });
 
 app.get("/allarticles/:id", function(req,res) {
-    db.Article.find({_id:req.params.id})
+    db.Article.find({_id: req.params.id})
     .populate("note")
     .then(function(newNote) {
         res.json(newNote);
@@ -84,7 +84,7 @@ app.get("/allarticles/:id", function(req,res) {
 })
 
 app.delete("/allarticles/:id", function(req,res) {
-    db.Article.findOneAndRemove({_id:req.params.id})
+    db.Article.findOneAndRemove({_id: req.params.id})
     .then(function(deletedArticle) {
         res.json(deletedArticle)
     })
