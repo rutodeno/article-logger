@@ -7,9 +7,24 @@ $(document).ready(function() {
         console.log(data);
     });
 
+    
+  //$('#modal1').on('click', function() {
+
+  $(document).on("click", "#modalTrigger", function() {
+
+    console.log("me");
+    $('.modal').modal();
+    $("#notes").empty();
+
+
+
+
+  })
+
 
     $(document).on("click", "p", function() {
         $("#notes").empty();
+
 
         let thisId = $(this).attr("data-id");
 
@@ -19,13 +34,15 @@ $(document).ready(function() {
         })
         .then(function(data) {
 
+
+
             console.log(data);
+            
             $("#notes").append("<h6 class='header'>" + data[0].title + "</h6>");
-            $("#notes").append("<div class='card horizontal'>")
             $("#notes").append("<input id='titleinput' name='title' >");
             $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
             $("#notes").append("<button  class='btn waves-effect waves-light' data-id'" + data[0]._id + "' id='savenote'> Save Note</button> ");
-
+            
             if(data.note) {
                 $("#titleinput").val(data.note.title);
                 $("#bodyinput").val(data.note.body);
