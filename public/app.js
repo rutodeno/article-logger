@@ -3,7 +3,7 @@ $(document).ready(function() {
     $.getJSON("/allarticles", function(data) {
         for(var i = 0; i < data.length; i++) {
             var biggerDiv = $("<div data-id='" +data[i]._id+ "' class='card-panel'>");
-            $(biggerDiv).append("<a href = https://www.desiringgod.org/"+data[i].link+" target='_blank'>" +data[i].title + "<br />" + data[i].author + "<br />"  + "</a>"); 
+            $(biggerDiv).append("<a href = https://www.desiringgod.org/" +data[i].link+" target='_blank'> <h4>" +data[i].title + "</h4> by " + data[i].author + "<br />"+ "</a> " +"<br />"); 
             $(biggerDiv).append("<button data-target='modal1' data-id='" +data[i]._id+ "' class='btn modal-trigger' id = 'modalTrigger'>Comment</button>");
             $("#articles").append(biggerDiv);
         }
@@ -25,7 +25,7 @@ $(document).ready(function() {
         
 
         let thisId = $(this).attr("data-id");
-        console.log("thisId " +thisId)
+        console.log("thisId get" +thisId)
 
         $.ajax({
             methos: "GET",
@@ -36,20 +36,29 @@ $(document).ready(function() {
 
 
             $(".modalHeader").html(data[0].title);
-            $("#savenote").append("<data-id '" + data[0]._id + "'>");
+            $("#savenote").attr("data-id",  data[0]._id );
+
+            /*
 
             if(data.note) {
                 $("#titleinput").val(data.note.title);
                 $("#bodyinput").val(data.note.body);
             }
 
+            */
+
         })
 
     })
 
+
+
     $(document).on("click", "#savenote", function() {
         let thisId = $(this).attr("data-id");
+        console.log("thisId post" +thisId)
 
+        console.log( $("#titleinput").val())
+    /*
         $.ajax({
             method: "POST",
             url: "/allarticles/" +thisId,
@@ -68,5 +77,6 @@ $(document).ready(function() {
         $("#bodyinput").val("");
     });
 
+    */
 
 });
