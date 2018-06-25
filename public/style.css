@@ -3,9 +3,9 @@
 }
 
 .container {
-    width: 100%;
-    margin:  0px 0px 0px 0px;
-    max-width:  100%;
+    width: 98%;
+    margin:  0px auto;
+    /*max-width:  100%;*/
 
 }
 
@@ -60,7 +60,7 @@ nav {
 .page-footer {
     background-color:#e53935;
     color: black;
-    padding-bottom: 20px;
+    padding: 30px 0;
     margin-top: 10px;   
     text-align: center;
     font-family: 'Roboto', sans-serif;
