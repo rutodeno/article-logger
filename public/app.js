@@ -3,7 +3,7 @@ $(document).ready(function() {
     $.getJSON("/allarticles", function(data) {
         for(var i = 0; i < data.length; i++) {
             var biggerDiv = $("<div data-id='" +data[i]._id+ "' class='card-panel'>");
-            $(biggerDiv).append("<p>" +data[i].title + "<br />" + data[i].author + "<br />" + data[i].link + "</p>"); 
+            $(biggerDiv).append("<a href = https://www.desiringgod.org/"+data[i].link+" target='_blank'>" +data[i].title + "<br />" + data[i].author + "<br />"  + "</a>"); 
             $(biggerDiv).append("<button data-target='modal1' data-id='" +data[i]._id+ "' class='btn modal-trigger' id = 'modalTrigger'>Comment</button>");
             $("#articles").append(biggerDiv);
         }
