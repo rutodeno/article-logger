@@ -56,9 +56,13 @@ $(document).ready(function() {
     $(document).on("click", "#savenote", function() {
         let thisId = $(this).attr("data-id");
         console.log("thisId post" +thisId)
+        let title = $("#titleinput").val()
+        console.log(title);
+        let body = $("#bodyinput").val()
+        console.log(body);
 
-        console.log( $("#titleinput").val())
-    /*
+        
+    
         $.ajax({
             method: "POST",
             url: "/allarticles/" +thisId,
@@ -69,14 +73,18 @@ $(document).ready(function() {
         })
         .then(function(data) {
             console.log(data);
-            $("#notes").empty();
+           // $("#notes").empty();
 
         });
 
         $("#titleinput").val("");
         $("#bodyinput").val("");
+        $("#closeBtn").modal("close");
+
+
+        
     });
 
-    */
+    
 
 });
