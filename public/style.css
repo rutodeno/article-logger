@@ -67,40 +67,10 @@ nav {
     font-weight: bold;
 }
 
-
-/*
-body {
-    background-color: aquamarine
+button#savenote {
+    margin-left: 10px;
 }
 
-#wrapper {
-    width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 5%;
+button#closeBtn {
+    margin-right: 10px;
 }
-#articles {
-    display: inline-block;
-    overflow: auto;
-    width: 60%;
-    height: 700px;
-}
-#notes {
-    float: right;
-    width: 30%;
-}
-textarea, input {
-    display: block;
-    width: 100%;
-    background-color: bisque;
-}
-input {
-    height: 36px;
-    font-size: 24px;
-}
-textarea {
-    height: 200px;
-    font-size: 18px;
-}
-
-*/

@@ -3,30 +3,52 @@ $(document).ready(function() {
     $.getJSON("/allarticles", function(data) {
         for(var i = 0; i < data.length; i++) {
             $("#articles").append("<div class='card-panel'><p data-id='" +data[i]._id+ "'>" +data[i].title + "<br />" + data[i].author + "<br />" + data[i].link + "</p></div>"); 
+            $("#articles").append('<button data-target="modal1" class="btn modal-trigger" id = "modalTrigger">Comment</button>');
         }
-        console.log(data);
     });
 
-    
-  //$('#modal1').on('click', function() {
 
-  $(document).on("click", "#modalTrigger", function() {
+    $(document).on("click", "#modalTrigger", function() {
 
-    console.log("me");
-    $('.modal').modal();
-    $("#notes").empty();
+        $('.modal').modal();
+
+        $('#modal1').modal("open");
+
+        $(document).on("click", "#closeBtn", function() {
+
+            $("#closeBtn").modal("close");
+
+        })
+        
+        
+
+        $(document).
+        let thisId = $('p').attr("data-id");
+        console.log("thisId " +thisId)
+
+        $.ajax({
+            methos: "GET",
+            url: "/allarticles/" +thisId
+        })
+        .then(function(data) {
+            console.log(data);
 
 
+            $(".modalHeader").html(data[0].title);
+            $("#savenote").append("<data-id '" + data[0]._id + "'>");
+        })
 
+    })
 
-  })
-
-
+/*
     $(document).on("click", "p", function() {
-        $("#notes").empty();
+       // $("#notes").empty();
 
+       $('.modal').modal('open');
 
         let thisId = $(this).attr("data-id");
+
+        console.log(thisId)
 
         $.ajax({
             method: "GET",
@@ -34,6 +56,7 @@ $(document).ready(function() {
         })
         .then(function(data) {
 
+            
 
 
             console.log(data);
@@ -49,7 +72,7 @@ $(document).ready(function() {
             }
         });
     }); 
-
+*/
     $(document).on("click", "#savenote", function() {
         let thisId = $(this).attr("data-id");
 

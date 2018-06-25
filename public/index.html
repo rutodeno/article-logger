@@ -60,18 +60,21 @@
                 <div id="notes">
                 
                 
-                    <!-- Modal Trigger -->
-                    <button data-target="modal1" class="btn modal-trigger" id = "modalTrigger">Modal</button>
+                    <!-- Modal Trigger 
+                    <button data-target="modal1" class="btn modal-trigger" id = "modalTrigger">Modal</button> -->
                 
                     <!-- Modal Structure -->
+                    <!-- $('.modal header').innerHTL-->
                     <div id="modal1" class="modal">
                         <div class="modal-content">
-                            <h6 class='header'></h6>
-                            <textarea id='bodyinput' name='body'></textarea>
-                            <button class='btn waves-effect waves-light' data-id '" + data[0]._id + "' id='savenote'> Save Note</button>
+                            <h5 class='modalHeader'></h5>
+                            <input id='titleinput' placeholder="Enter a Title " name='title' ></input>
+                            <textarea id='bodyinput' placeholder="Enter Text" name='body'></textarea>
                         </div>
                         <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                            <button class='btn waves-effect waves-light'  id='savenote'> Save Note</button>
+                            <button class='btn waves-effect waves-light'  id='closeBtn'> Close</button>
+
                         </div>
                     </div>
                 </div>
