@@ -2,8 +2,10 @@ $(document).ready(function() {
 
     $.getJSON("/allarticles", function(data) {
         for(var i = 0; i < data.length; i++) {
-            $("#articles").append("<div class='card-panel'><p data-id='" +data[i]._id+ "'>" +data[i].title + "<br />" + data[i].author + "<br />" + data[i].link + "</p></div>"); 
-            $("#articles").append('<button data-target="modal1" class="btn modal-trigger" id = "modalTrigger">Comment</button>');
+            var biggerDiv = $("<div data-id='" +data[i]._id+ "' class='card-panel'>");
+            $(biggerDiv).append("<p>" +data[i].title + "<br />" + data[i].author + "<br />" + data[i].link + "</p>"); 
+            $(biggerDiv).append("<button data-target='modal1' data-id='" +data[i]._id+ "' class='btn modal-trigger' id = 'modalTrigger'>Comment</button>");
+            $("#articles").append(biggerDiv);
         }
     });
 
@@ -22,8 +24,7 @@ $(document).ready(function() {
         
         
 
-        $(document).
-        let thisId = $('p').attr("data-id");
+        let thisId = $(this).attr("data-id");
         console.log("thisId " +thisId)
 
         $.ajax({
