@@ -21,7 +21,9 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/articleLogger");
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articleLogger" ; 
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
 
 app.get("/scrapps", function (req, res) {
     axios.get("https://www.desiringgod.org/resources/all")
