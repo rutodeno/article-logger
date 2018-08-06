@@ -2,6 +2,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
+var expressHandlebars = require("express-handlebars");
 var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
@@ -19,7 +20,7 @@ var PORT = 8080  // check documentation
 var app = express();
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static(__dirname+"public"));
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articleLogger" ; 
 mongoose.Promise = Promise;
