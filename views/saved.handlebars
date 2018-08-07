@@ -1,1 +1,72 @@
-<h1>Example App: Saved</h1>
+<div class="row">
+    <div class="col s12 m12 l12 ">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Web Scraper</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="badges.html">Scrape</a>
+                    </li>
+                    <li>
+                        <a href="sass.html">About</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col s12 m12 l12">
+        <img width="100%" src="./Images/biblia.jpg">
+        <div class="centered">
+            <h3>Web Scrapper</strong>
+            </h3>
+            <h5>Desiring God Edition</h5>
+        </div>
+        <!--https://vignette.wikia.nocookie.net/lotrminecraftmod/images/6/63/Bible-scroll.jpg/revision/latest?cb=20170206200643-->
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div id='articles'></div>
+
+            <div id="notes">
+
+                <!-- Modal Trigger 
+                    <button data-target="modal1" class="btn modal-trigger" id = "modalTrigger">Modal</button> -->
+
+                <!-- Modal Structure -->
+                <!-- $('.modal header').innerHTL-->
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h5 class='modalHeader'></h5>
+                        <input id='titleinput' placeholder="Enter a Title " name='title'></input>
+                        <textarea id='bodyinput' placeholder="Enter Text" name='body'></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button class='btn waves-effect waves-light' id='savenote'> Save Note</button>
+                        <button class='btn waves-effect waves-light' id='closeBtn'> Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="page-footer">
+    <div>
+        © 2018 Copyright Dennis Ruto
+    </div>
+</footer>
+
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<script src="../public/assets/javascript/saved.js"></script>
+
