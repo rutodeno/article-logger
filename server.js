@@ -18,13 +18,28 @@ var PORT = 8080  // check documentation
 
 
 var app = express();
-app.use(logger("dev"));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname+"public"));
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articleLogger" ; 
+var router = express.Router(); // not sure how to use this
+app.use(logger("dev"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(__dirname+"/public"));
+app.engine("handlebars", expressHandlebars({
+    defaultLayout: "main"
+}));
+
+app.set("view engine", "handlebars");
+
+
+var connectDB = process.env.MONGODB_URI || "mongodb://localhost/articleLogger" ; 
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(connectDB, function(err) { // checking connection
+    if(err) {
+        console.log(err);
+    }
+    else {
+        console.log("mongoose connection succesful");
+    }
+});
 
 app.get("/scrapps", function (req, res) {
     axios.get("https://www.desiringgod.org/resources/all")
