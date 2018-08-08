@@ -7,25 +7,22 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 var db = require("./models"); // database
-var PORT = 8080  // check documentation
-
-
-
-// objective
-// 1. scrap desiring God
-// 2. Saved articles on MongoDB
-// 3. Implement a wat to have notes on it
+var PORT = process.env.PORT || 8080  // check documentation
 
 
 var app = express();
 
 var router = express.Router(); // not sure how to use this
+require("./config/routes")(router);
+
 app.use(logger("dev"));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(__dirname+"/public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 app.engine("handlebars", expressHandlebars({
     defaultLayout: "main"
 }));
+
+app.use(router);
 
 app.set("view engine", "handlebars");
 
