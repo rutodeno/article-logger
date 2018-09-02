@@ -58,7 +58,7 @@ app.get("/scrapps", function (req, res) {
                     .children("a")
                     .find(".card__author")
                     .text()
-
+                
 
                 // saving results to our database
                 db.Article.create(result)
