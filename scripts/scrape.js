@@ -1,7 +1,6 @@
 let cheerio = require('cheerio');
 let axios = require('axios');
 
-
 const scrape = () => {
    return axios.get("https://www.desiringgod.org/resources/all")
         .then(function (response) {
