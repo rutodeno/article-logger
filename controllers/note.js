@@ -2,7 +2,8 @@ let db = require('../models');
 
 module.exports = {
     find: function(req, res) {
-        db.Note.find({_headlineId: req.params.id }).then(function(dbNote) {
+        db.Note.find({_headlineId: req.params.id }).
+        then(function(dbNote) {
             res.json(dbNote);
         });
     },
@@ -10,7 +11,8 @@ module.exports = {
     // create
 
     create: function(req, res) {
-        db.Note.create(req.body).then(function(dbNote) {
+        db.Note.create(req.body).
+        then(function(dbNote) {
             res.json(dbNote);
         });
     },

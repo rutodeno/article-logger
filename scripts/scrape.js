@@ -43,4 +43,4 @@ const scrape = () => {
         })
 }
 
-modules.exports = scrape;
+module.exports = scrape;
