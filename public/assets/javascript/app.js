@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $.getJSON("/allarticles", function(data) {
+    $.getJSON("/api/articles", function(data) {
         for(var i = 0; i < data.length; i++) {
             var biggerDiv = $("<div data-id='" +data[i]._id+ "' class='card-panel'>");
             $(biggerDiv).append("<a href = https://www.desiringgod.org/" +data[i].link+" target='_blank'> <h4>" +data[i].title + "</h4> by " + data[i].author + "<br />"+ "</a> " +"<br />"); 
