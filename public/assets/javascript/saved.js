@@ -1,74 +1,32 @@
-$(document).on("click", "#modalTrigger", function() {
+$(document).ready(function() {
+    let articleContainer = $(".article-container");
 
-    $('.modal').modal();
+    $(document).on("click", ".btn.delete", handleArticleDelete);
+    $(document).on("click", ".btn.notes", handleArticleNotes);
+    $(document).on("click", ".btn.save", handleNoteSave);
+    $(document).on("click", ".btn.note-delete", handleNoteDelete);
 
-    $('#modal1').modal("open");
+    initPage();
 
-    $(document).on("click", "#closeBtn", function() {
+    function initPage() {
+        articleContainer.empty();
+        $.get("/api/article?saved=true").then(function(data) {
+            if(data && data.length) {
+                renderArticles(data)
+            } else {
+                renderEmpty();
+            }
+        });
+    }
 
-        $("#closeBtn").modal("close");
+    function renderArticles(articles) {
+        let articleCards = [];
 
-    })
-    
-    
-
-    let thisId = $(this).attr("data-id");
-    console.log("thisId get" +thisId)
-
-    $.ajax({
-        methos: "GET",
-        url: "/allarticles/" +thisId
-    })
-    .then(function(data) {
-        console.log(data);
-
-
-        $(".modalHeader").html(data[0].title);
-        $("#savenote").attr("data-id",  data[0]._id );
-
-        /*
-
-        if(data.note) {
-            $("#titleinput").val(data.note.title);
-            $("#bodyinput").val(data.note.body);
+        for (let i = 0; i < articles.length; i++) {
+            articleCards.push(createCard(articles[i]));
         }
 
-        */
+        articleContainer.append(articleCards);
+    }
 
-    })
-
-})
-
-
-
-$(document).on("click", "#savenote", function() {
-    let thisId = $(this).attr("data-id");
-    console.log("thisId post" +thisId)
-    let title = $("#titleinput").val()
-    console.log(title);
-    let body = $("#bodyinput").val()
-    console.log(body);
-
-    
-
-    $.ajax({
-        method: "POST",
-        url: "/allarticles/" +thisId,
-        data: {
-            title: $("#titleinput").val(),
-            body: $("#bodyinput").val()
-        }
-    })
-    .then(function(data) {
-        console.log(data);
-       // $("#notes").empty();
-
-    });
-
-    $("#titleinput").val("");
-    $("#bodyinput").val("");
-    $("#closeBtn").modal("close");
-
-
-    
 });
