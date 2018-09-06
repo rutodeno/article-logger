@@ -47,4 +47,32 @@ $(document).ready(function() {
         articleContainer.append(emptyAlert);
     }
     
+
+    function handleArticleSave() {
+        let articleToSave =$(this)
+        .parents(".card")
+        .data()
+        articleToSave.saved = true;
+
+        $.ajax({
+            method: "PUT",
+            url: "/api/articles/" + articleToSave._id,
+            data: articleToSave
+        }).then(function (params) {
+
+            if(data.saved){
+                initPage();
+            }
+            
+        });
+    }
+
+
+    function handleArticleScrape() {
+        $.get("/api/fetch")
+        .then(function(data) {
+            initPage();
+            bootbox.alert("<h3 class='text-center m-top-80'"+data.message+"</h3>");
+        })
+    }
 });
