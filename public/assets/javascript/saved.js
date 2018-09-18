@@ -67,8 +67,16 @@ $(document).ready(function () {
         articleContainer.append(emptyAlert);
     }
 
+    function renderNotesList(data) {
+        
+    }
+
     function handleArticleNotes() {
 
+    }
+
+    function handleArticleDelete() {
+        
     }
 
     function handleNoteSave() {

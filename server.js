@@ -13,16 +13,18 @@ var app = express();
 var routes = require("./routes"); 
 
 app.use(logger("dev"));
+
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.set("view engine", "handlebars");
+
+
 app.use(express.static("public"));
 app.engine("handlebars", expressHandlebars({
     defaultLayout: "main"
 }));
 
 app.use(routes);
-
-app.set("view engine", "handlebars");
-
 
 var connectDB = process.env.MONGODB_URI || "mongodb://localhost/articleLogger" ; 
 mongoose.Promise = Promise;
@@ -36,7 +38,7 @@ mongoose.connect(connectDB, function(err) { // checking connection
 });
 
 app.listen(PORT, function() {
-    console.log("App running on port "+PORT);
+    console.log("App running on port " + PORT);
 })
 
 
