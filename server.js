@@ -7,7 +7,6 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var PORT = process.env.PORT || 8080  // check documentation
 
-
 var app = express();
 
 var routes = require("./routes"); 
@@ -17,7 +16,6 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set("view engine", "handlebars");
-
 
 app.use(express.static("public"));
 app.engine("handlebars", expressHandlebars({
@@ -40,8 +38,3 @@ mongoose.connect(connectDB, function(err) { // checking connection
 app.listen(PORT, function() {
     console.log("App running on port " + PORT);
 })
-
-
-
-
-

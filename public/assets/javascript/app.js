@@ -15,7 +15,7 @@ $(document).ready(function() {
                 renderEmpty();
             }
         })
-    }
+    }   
 
 
     function renderArticles(data) {
