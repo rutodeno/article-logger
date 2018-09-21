@@ -2,6 +2,30 @@
     box-sizing: border-box;
 }
 
+
+.jumbotron {
+    padding: 0px;
+}
+
+.container {
+    margin: 0px;
+    padding: 0px;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.col.s12.m12.l12 {
+    padding-left: 0px;
+    padding-right: 0px;
+} 
+
+.row { 
+    margin: 0px;
+}
+
 .centered {
     position: absolute;
     top: 50%;
@@ -9,4 +33,14 @@
     transform: translate(-50%, -50%);
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
+}
+
+.page-footer {
+    background-color: gray;
+    color: black;
+    padding: 20px 0;
+    margin-top: 10px;   
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
