@@ -8,9 +8,11 @@ a.navbar-brand {
     font-size: bold;
 }
 
-.img-fluid {
+.container,.img-fluid {
     max-width: 100%;
     height: auto;
+    margin: 0px;
+    padding: 0px;
 }
 
 #subheadline {

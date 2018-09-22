@@ -1,56 +1,77 @@
 $(document).ready(function() {
 
-    let articleContainer = $(".articleContainer");
-    $(document).on("click", ".btn.save", handleArticleSave);
-    $(document).on("click", ".scrape-new", handleArticleScrape);
+    $(document).on("click", "#btn.save", handleArticleSave);
+    $(document).on("click", "#scrapeBtn", handleArticleScrape);
 
     initPage();
 
     function initPage() {
+        let articleContainer = $(".article-container");
+
         $.get("/api/articles?saved=false").then(function(data) {
             console.log(data);
             if (data && data.length) {
-                renderArticles(data);
+                articleContainer.append(renderArticles(data));
+
             } else {
-                renderEmpty();
+                articleContainer.append(renderEmpty());
             }
         })
     }   
 
 
-    function renderArticles(data) {
-        for(var i = 0; i < data.length; i++) {
-            var biggerDiv = $("<div data-id='" +data[i]._id+ "' class='card-panel'>");
-            $(biggerDiv).append("<a href = https://www.desiringgod.org/" +data[i].link+" target='_blank'> <h4>" +data[i].title + "</h4> by " + data[i].author + "<br />"+ "</a> " +"<br />"); 
-            $(biggerDiv).append("<button data-target='modal1' data-id='" +data[i]._id+ "' class='btn modal-trigger' id = 'modalTrigger'>Comment</button>");
-            articleContainer.append(biggerDiv);
+    function renderArticles(articles) {
+        let articleCards = [];
+        for(let i = 0; i < articles.length; i++) {
+            
+            articleCards.push(createCard(articles[i]));
         }
+        return articleCards;
     }
 
-    function renderEmpty() {
-        let emptyAlert = $(
-            [ 
-                "<div class='alert alert-warning text center'>",
-                "<h4>No new articles today, Sorry!!</h4>",
-                "</div>",
-                "<div class='card",
-                "<div class='card-header text center>",
-                "<h3What would you like to do?</h3>",
-                "</div>",
-                "<div class='card-body text-center'>",
-                "<h4><a class='scrape-new'>Try Scraping New Articles</a></h4>",
-                "<h4><a href='/saved'>Go to Saved Articles</a></h4>",
-                "</div>",
+    function createCard(data) {
+        let card = $(
+            [
+                "<div  class='card border-success mb-3' style='max-width: 18rem;'>",
+                    "<div class='card-body text-success'>",
+                        "<h5 class='card-title'>" +data.title+ "by <h6>"+data.author+"</h6> </h5>",
+                        "<a href = 'https://www.desiringgod.org/'" +data.link+" target='_blank'></a>",
+                    "</div>",
                 "</div>"
             ].join("")
         );
-        articleContainer.append(emptyAlert);
+
+        card.data("_id", data._id);
+
+        return card;
+
+    };
+
+    function renderEmpty() {
+        let emptyAlert = $(
+            [
+                "<div class='card border-warning mb-3' style='max-width: 18rem;'>",
+                    "<div class='card-body text-warning'>",
+                        "<div class= 'alert alert-warning ' role='alert'  >",
+                            "<h6 class='alert-heading'>No new articles as of now, Sorry!!</h6>",
+                            "<hr>",
+                            "<h6> What would you like to do? </h6>",
+                            "<hr>",
+                            "<h6><a class='scrape-new'>Try Scraping New Articles</a></h6>",
+                            "<h6><a href='/saved'>Go to Saved Articles</a></h6>",
+                        "</div>",
+                    "<div>",
+                "</div>"
+
+            ].join("")
+        );
+        return emptyAlert;
     }
-    
+
 
     function handleArticleSave() {
-        let articleToSave =$(this)
-        .parents(".card")
+        let articleToSave = $(this)
+            .parents(".card")
         .data()
         articleToSave.saved = true;
 
