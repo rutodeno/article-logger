@@ -8,18 +8,18 @@ const scrape = () => {
             var articles =  []; 
 
             $(".card--resource").each(function (i, element) {
-                var result = {};
 
-                result.headline = $(this)
+                let headline = $(this)
                     .children("a")
                     .find("h2")
                     .text()
                     .trim();
-                result.link = $(this)
+                let link = $(this)
                     .children("a.card__shadow")
-                    .attr("href");
+                    .attr("href")
 
-                result.author = $(this)
+
+                let author = $(this)
                     .children("a")
                     .find(".card__author")
                     .text()
@@ -44,3 +44,4 @@ const scrape = () => {
 }
 
 module.exports = scrape;
+

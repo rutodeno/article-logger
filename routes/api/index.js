@@ -4,7 +4,7 @@ let noteRoutes = require("./note");
 let articleRoutes = require("./article");
 
 router.use("/fetch", fetchRoutes);
-router.use("/notes", noteRoutes);
-router.use("/articles", articleRoutes);
+router.use("/note", noteRoutes);
+router.use("/article", articleRoutes);
 
 module.exports = router;
