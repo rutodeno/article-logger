@@ -60,6 +60,14 @@ a.navbar-brand {
 
 }
 
+.card.border-success {
+    margin: 10px;
+    padding: 5px;
+    height: 200px;;
+    float: left;
+    overflow: auto;
+}
+
 .page-footer {
     color: black;
     padding: 20px 0;
