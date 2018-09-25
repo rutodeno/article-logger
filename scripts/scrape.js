@@ -38,7 +38,6 @@ const scrape = () => {
                 }
                     
             })
-            console.log(articles);
             return articles;
         })
 }

@@ -34,8 +34,9 @@ $(document).ready(function() {
             [
                 "<div  class='card border-success mb-3' style='max-width: 18rem;'>",
                     "<div class='card-body text-success'>",
-                        "<h5 class='card-title'>" +data.title+ "by <h6>"+data.author+"</h6> </h5>",
-                        "<a href = 'https://www.desiringgod.org/'" +data.link+" target='_blank'></a>",
+                        "<a href = 'https://www.desiringgod.org/'" +data.link+" target='_blank'>",
+                        "<h5 class='card-title'>" +data.headline+ " </h5></a>",
+                        "<h6>"+data.author+"</h6>",
                     "</div>",
                 "</div>"
             ].join("")
