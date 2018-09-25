@@ -63,7 +63,8 @@ a.navbar-brand {
 .card.border-success {
     margin: 10px;
     padding: 5px;
-    height: 200px;;
+    height: 200px;
+    width: 300px;
     float: left;
     overflow: auto;
 }
