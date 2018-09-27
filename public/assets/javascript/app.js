@@ -32,8 +32,8 @@ $(document).ready(function() {
     function createCard(data) {
         let card = $(
             [
-                "<div  class='card border-success mb-3' style='max-width: 18rem;'>",
-                    "<div class='card-body text-success'>",
+                "<div  class='card border-dark mb-3' style='max-width: 18rem;'>",
+                    "<div class='card-body '>",
                         "<a href = 'https://www.desiringgod.org/"+data.link+"' target='_blank'>",
                         "<h5 class='card-title'>" +data.headline+ " </h5></a>",
                         "<h6>"+data.author+"</h6>",
