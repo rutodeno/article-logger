@@ -11,8 +11,9 @@ a.navbar-brand {
 .container,.img-fluid {
     max-width: 100%;
     height: auto;
-    margin: 0px;
+    margin: 0px auto;
     padding: 0px;
+
 }
 
 #subheadline {
@@ -60,16 +61,22 @@ a.navbar-brand {
 
 }
 
-.card.border-success {
+.card.border-success.mb-3 {
     margin: 10px;
     padding: 5px;
     height: 200px;
-    width: 300px;
+    width: 276px;
     float: left;
     overflow: auto;
 }
 
+.article-container {
+    margin: 20px 20px 10px 80px;
+}
+
 .page-footer {
+    clear: both;
+    overflow: auto;
     color: black;
     padding: 20px 0;
     text-align: center;
