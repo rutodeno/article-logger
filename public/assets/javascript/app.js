@@ -11,26 +11,6 @@ $(document).ready(function() {
             console.log(data);
             if (data && data.length) {
                 articleContainer.append(renderArticles(data));
-
-                $(document).ready(function() {
-                    $(".card").hover(
-                        // trigger hover in
-                        function () {
-                            $(this).animate({
-                                marginTop: "-=1%"
-                            }, 200)
-                        }, 
-            
-                        // trigger hover out
-            
-                        function () {
-                            $(this).animate({
-                                marginTop: "0%"
-                            }, 200)
-                        }
-                    );
-                });
-
             } else {
                 articleContainer.append(renderEmpty());
             }
@@ -115,5 +95,27 @@ $(document).ready(function() {
             initPage();
             bootbox.alert("<h3 class='text-center m-top-80'"+data.message+"</h3>");
         })
+    }
+
+    // add this later. Allows card to move up when user hover on it.
+
+    function hoverCard() {
+        $(".card.border-dark.mb-3").hover(
+            // trigger hover in
+            function () {
+                $(this).animate({
+                    marginTop: "-=0.5%"
+                }, 200)
+            }, 
+
+            // trigger hover out
+
+            function () {
+                $(this).animate({
+                    marginTop: "0%"
+                }, 200)
+            }
+        );
+
     }
 });
