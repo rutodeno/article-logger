@@ -7,7 +7,7 @@ $(document).ready(function() {
     function initPage() {
         let articleContainer = $(".article-container");
 
-        $.get("/api/article").then(function(data) {
+        $.get("/api/article?saved=false").then(function(data) {
             console.log(data);
             if (data && data.length) {
                 articleContainer.append(renderArticles(data));
@@ -65,7 +65,7 @@ $(document).ready(function() {
 
             ].join("")
         );
-        return emptyAlert;
+        articleContainer.append( emptyAlert);
     }
 
 
@@ -77,7 +77,7 @@ $(document).ready(function() {
 
         $.ajax({
             method: "PUT",
-            url: "/api/articles/" + articleToSave._id,
+            url: "/api/article/" + articleToSave._id,
             data: articleToSave
         }).then(function (params) {
 

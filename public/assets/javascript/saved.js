@@ -32,14 +32,12 @@ $(document).ready(function () {
     function createCard(article) {
         let card = $(
             [
-                "<div class='card'>",
-                "<div class='card-header'>",
-                "<h3>",
-                "<a class='article-link' target='_blank' href='" +article.url+ "'>", article.headline, "</a>",
-                "<a class='btn btn-danger delete'", "Delete From Saved", "</a>",
-                "<a class='btn btn-info notes'>Article Notes</a>",
-                "</h3>",
-                "</div>",
+                "<div  class='card border-dark mb-3' style='max-width: 18rem;'>",
+                    "<div class='card-body '>",
+                        "<a href = 'https://www.desiringgod.org"+data.link+"' target='_blank'>",
+                        "<h5 class='card-title'>" +data.headline+ " </h5></a>",
+                        "<h6>"+data.author+"</h6>",
+                    "</div>",
                 "</div>"
             ].join("")
         );
@@ -49,21 +47,23 @@ $(document).ready(function () {
     }
 
     function renderEmpty() {
-        let emptyAlert =$(
+        let emptyAlert = $(
             [
-                "<div class='alert alert-warning text-center'>",
-                "<h4>We need new saved articles</h4>",
-                "</div>",
-                "<div class='card'>",
-                "<div class='card-header text-center'>",
-                "<h3>Please browse available articles</h3>",
-                "</div>",
-                "<div class='card-body text-center'>",
-                "<h4><a href='/'>Browse Articles</a></h4>",
-                "</div>",
+                "<div class='card border-warning mb-3' style='max-width: 18rem;'>",
+                    "<div class='card-body text-warning'>",
+                        "<div class= 'alert alert-warning ' role='alert'  >",
+                            "<h6 class='alert-heading'>No new articles as of now, Sorry!!</h6>",
+                            "<hr>",
+                            "<h6> What would you like to do? </h6>",
+                            "<hr>",
+                            "<h6><a class='scrape-new'>Try Scraping New Articles</a></h6>",
+                            "<h6><a href='/saved'>Go to Saved Articles</a></h6>",
+                        "</div>",
+                    "<div>",
                 "</div>"
+
             ].join("")
-        );  
+        );
         articleContainer.append(emptyAlert);
     }
 
@@ -84,7 +84,7 @@ $(document).ready(function () {
         let newNote = $(".bootbox-body textarea").val().trim();
         if (newNote) {
             noteData = { _headlineId: $(this).data("article")._id, noteText: newNote }
-            $.post("/api/notes", noteData).then(function () {
+            $.post("/api/note", noteData).then(function () {
                 bootbox.hideAll();
             });
         }
@@ -93,7 +93,7 @@ $(document).ready(function () {
     function handleNoteDelete() {
         let noteToDelete = $(this).data("_id");
         $.ajax({
-            url: "/api/notes/" + noteToDelete,
+            url: "/api/note/" + noteToDelete,
             method: "DELETE"
         }).then(function () {
             bootbox.hideAll();
