@@ -68,14 +68,79 @@ $(document).ready(function () {
     }
 
     function renderNotesList(data) {
-        
+        let notesToRender = [];
+        let currentNote;
+        if(!data.notes.length) {
+            currentNote = [
+                "<li class = 'list-group-item'>",
+                "No notes for this article yet.",
+                "</li>"
+            ].join("");
+            notesToRender.push(currentNote);
+        } else {
+            for (let i = 0; i < data.notes.length; i++) {
+                currentNote = $(
+                    [
+                        "<li class='list-group-item note'>",
+                        data.notes[i].noteText,
+                        "<button class='btn btn-danger note-delete'>x</button>",
+                        "</li>"
+                    ].join("")
+                );
+
+                currentNote.children("button").data("_id", data.notes[i]._id);
+                notesToRender.push(currentNote);
+            }
+        }
+        $(".note-container").append(notesToRender);
     }
 
-    function handleArticleNotes() {
+    function handleArticleNotes(event) {
+        let currentArticle = $(this)
+            .parents(".card")
+            .data();
+        $.get("/api/note/" +currentArticle._id).then((data) => {
+            let modalText = [
+                "<div class='container-fluid text-center'>",
+                "<h4>Notes For Article: ",
+                currentArticle._id,
+                "</h4>",
+                "<hr />",
+                "<ul class='list-group note-container'>",
+                "</ul>",
+                "<textarea placeholder='New Note' rows='4' cols='60'></textarea>",
+                "<button class='btn btn-success save'>Save Note</button>",
+                "</div>"
+            ].join("");
 
+            bootbox.dialog({
+                message: modalText,
+                closeButton: true
+            });
+
+            let noteData = {
+                _id: currentArticle._id,
+                notes: data || []
+            };
+
+            $(".btn.save").data("article", noteData);
+            renderNotesList(noteData);
+        })
     }
 
     function handleArticleDelete() {
+        let articleToDelete = $(this)
+        .parents(".card")
+        .data();
+
+        $.ajax({
+            method: "DELETE",
+            url: "/api/article/" + articleToDelete._id
+        }).then((data) => {
+            if(data.ok) {
+                initPage();
+            }
+        })
         
     }
 
@@ -84,9 +149,7 @@ $(document).ready(function () {
         let newNote = $(".bootbox-body textarea").val().trim();
         if (newNote) {
             noteData = { _headlineId: $(this).data("article")._id, noteText: newNote }
-            $.post("/api/note", noteData).then(function () {
-                bootbox.hideAll();
-            });
+            $.post("/api/note", noteData).then(() => bootbox.hideAll());
         }
     }
 
@@ -95,9 +158,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/api/note/" + noteToDelete,
             method: "DELETE"
-        }).then(function () {
-            bootbox.hideAll();
-        })
+        }).then(() => bootbox.hideAll())
     }
 
 });
