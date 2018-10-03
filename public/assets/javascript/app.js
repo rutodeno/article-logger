@@ -1,7 +1,7 @@
 $(document).ready(function() {
     let articleContainer = $(".article-container");
-    $(document).on("click", "#btn.save", handleArticleSave);
-    $(document).on("click", "#scrapeBtn", handleArticleScrape);
+    $(document).on("click", ".btn.save", handleArticleSave);
+    $(document).on("click", ".scrape-new", handleArticleScrape);
 
 
     initPage();
@@ -38,6 +38,7 @@ $(document).ready(function() {
                         "<a href = 'https://www.desiringgod.org"+data.link+"' target='_blank'>",
                         "<h5 class='card-title'>" +data.headline+ " </h5></a>",
                         "<h6>"+data.author+"</h6>",
+                        "<button type='button' class='btn btn-sm btn-outline-success save'>Save Article</button>",
                     "</div>",
                 "</div>"
             ].join("")
@@ -59,7 +60,7 @@ $(document).ready(function() {
                             "<hr>",
                             "<h6> What would you like to do? </h6>",
                             "<hr>",
-                            "<h6><a class='scrape-new'>Try Scraping New Articles</a></h6>",
+                            "<button type='button' class='btn btn-sm btn-outline-info scrape-new'>Scraping New Articles</button>",
                             "<h6><a href='/saved'>Go to Saved Articles</a></h6>",
                         "</div>",
                     "<div>",
@@ -74,19 +75,17 @@ $(document).ready(function() {
     function handleArticleSave() {
         let articleToSave = $(this)
             .parents(".card")
-        .data()
+            .data()
         articleToSave.saved = true;
 
         $.ajax({
             method: "PUT",
             url: "/api/article/" + articleToSave._id,
             data: articleToSave
-        }).then(function (params) {
-
+        }).then((data) => {
             if(data.saved){
                 initPage();
             }
-            
         });
     }
 
