@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     initPage();
     function initPage() {
-
+        articleContainer.empty();
         $.get("/api/article?saved=false").then(function(data) {
             console.log(data);
             if (data && data.length) {

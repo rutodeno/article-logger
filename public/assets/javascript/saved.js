@@ -12,7 +12,7 @@ $(document).ready(function () {
         articleContainer.empty();
         $.get("/api/article?saved=true").then(function (data) {
             if (data && data.length) {
-                renderArticles(data)
+                articleContainer.append(renderArticles(data));
             } else {
                 renderEmpty();
             }

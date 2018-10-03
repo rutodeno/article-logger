@@ -3,11 +3,17 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul id ="subheadline" class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
+                <a class="nav-link" href="/"><span class="sr-only">(current)</span>Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/saved"><span class="sr-only">(current)</span>Saved Articles</a>
+            </li>
+            <li class="nav-item active">
                 <button type="button" id="clearBtn" class="btn btn-outline-danger btn-sm">Clear Articles</button>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home</a>
-            </li>
+                <button type="button" id="scrapeBtn" class="btn btn-outline-info btn-sm" >Scrape Articles</button>
+            </li>     
             <li class="nav-item active">
                 <a class="nav-link" href="/sass.html">About</a>
             </li>
@@ -30,6 +36,15 @@
                 </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class=" article-container">
+            </div>
+        </div>
+    </div>
+
+    <hr>
 </div>
 
 <footer class="page-footer">
@@ -47,4 +62,4 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/assets/javascript/app.js" type="text/javascript"></script>
+<script src="/assets/javascript/saved.js" type="text/javascript"></script>
