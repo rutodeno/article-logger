@@ -34,9 +34,12 @@ $(document).ready(function () {
             [
                 "<div  class='card border-dark mb-3' style='max-width: 18rem;'>",
                     "<div class='card-body '>",
-                        "<a href = 'https://www.desiringgod.org"+data.link+"' target='_blank'>",
-                        "<h5 class='card-title'>" +data.headline+ " </h5></a>",
-                        "<h6>"+data.author+"</h6>",
+                        "<a href = 'https://www.desiringgod.org"+article.link+"' target='_blank'>",
+                        "<h5 class='card-title'>" +article.headline+ " </h5></a>",
+                        "<h6>"+article.author+"</h6>",
+                        "<button type='button' class='btn btn-sm btn-outline-danger delete'>Delete</button>",
+                        "<button type='button' class='btn btn-sm btn-outline-info notes'>Add notes</button>",
+
                     "</div>",
                 "</div>"
             ].join("")
