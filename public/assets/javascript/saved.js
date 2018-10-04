@@ -101,8 +101,8 @@ $(document).ready(function () {
         let currentArticle = $(this)
             .parents(".card")
             .data();
+
         $.get("/api/note/" +currentArticle._id).then(function (data) {
-            console.log(data);
             let modalText = [
                 "<div class='container-fluid text-center'>",
                 "<h4>Notes For Article: ",
@@ -115,7 +115,7 @@ $(document).ready(function () {
                 "<button class='btn btn-success save'>Save Note</button>",
                 "</div>"
             ].join("");
-
+            
             bootbox.dialog({
                 message: modalText,
                 closeButton: true
