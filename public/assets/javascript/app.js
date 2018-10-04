@@ -1,7 +1,7 @@
 $(document).ready(function() {
     let articleContainer = $(".article-container");
     $(document).on("click", ".btn.save", handleArticleSave);
-    $(document).on("click", ".scrape-new", handleArticleScrape);
+    $(document).on("click", "#scrapeBtn", handleArticleScrape);
 
 
     initPage();
@@ -60,7 +60,7 @@ $(document).ready(function() {
                             "<hr>",
                             "<h6> What would you like to do? </h6>",
                             "<hr>",
-                            "<button type='button' class='btn btn-sm btn-outline-info scrape-new'>Scraping New Articles</button>",
+                            "<h6><a id='scrapeBtn'>Try Scraping New Articles</a></h6>",
                             "<h6><a href='/saved'>Go to Saved Articles</a></h6>",
                         "</div>",
                     "<div>",

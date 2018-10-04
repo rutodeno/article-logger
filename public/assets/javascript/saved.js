@@ -38,8 +38,7 @@ $(document).ready(function () {
                         "<h5 class='card-title'>" +article.headline+ " </h5></a>",
                         "<h6>"+article.author+"</h6>",
                         "<button type='button' class='btn btn-sm btn-outline-danger delete'>Delete</button>",
-                        "<button type='button' class='btn btn-sm btn-outline-info notes'>Add notes</button>",
-
+                        "<button type='button' class='btn btn-sm btn-outline-info notes'>Article notes</button>",
                     "</div>",
                 "</div>"
             ].join("")
@@ -59,7 +58,7 @@ $(document).ready(function () {
                             "<hr>",
                             "<h6> What would you like to do? </h6>",
                             "<hr>",
-                            "<h6><a class='scrape-new'>Try Scraping New Articles</a></h6>",
+                            "<h6><a id='scrapeBtn'>Try Scraping New Articles</a></h6>",
                             "<h6><a href='/saved'>Go to Saved Articles</a></h6>",
                         "</div>",
                     "<div>",
@@ -102,7 +101,8 @@ $(document).ready(function () {
         let currentArticle = $(this)
             .parents(".card")
             .data();
-        $.get("/api/note/" +currentArticle._id).then((data) => {
+        $.get("/api/note/" +currentArticle._id).then(function (data) {
+            console.log(data);
             let modalText = [
                 "<div class='container-fluid text-center'>",
                 "<h4>Notes For Article: ",
