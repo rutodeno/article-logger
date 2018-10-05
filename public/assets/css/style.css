@@ -85,6 +85,15 @@ a.navbar-brand {
     margin: 2% 2% 2% 4%;
 }
 
+textarea {
+    width: 100%;
+}
+li.list-group-item.note {
+    margin-bottom: 10px;
+}
+.note-delete {
+    margin-left: 10px;
+}
 .page-footer {
     clear: both;
     overflow: auto;

@@ -85,7 +85,7 @@ $(document).ready(function () {
                     [
                         "<li class='list-group-item note'>",
                         data.notes[i].noteText,
-                        "<button class='btn btn-danger note-delete'>x</button>",
+                        "<button class='btn btn-danger note-delete btn-sm'>Delete</button>",
                         "</li>"
                     ].join("")
                 );
@@ -103,19 +103,21 @@ $(document).ready(function () {
             .data();
 
         $.get("/api/note/" +currentArticle._id).then(function (data) {
+
+            console.log(data);
             let modalText = [
                 "<div class='container-fluid text-center'>",
-                "<h4>Notes For Article: ",
-                currentArticle._id,
-                "</h4>",
+                "<h4>Add notes to the article</h4>",
                 "<hr />",
                 "<ul class='list-group note-container'>",
                 "</ul>",
-                "<textarea placeholder='New Note' rows='4' cols='60'></textarea>",
+                "<div class='form-group'>",
+                "<textarea placeholder='New Note' rows='4' col=50></textarea>",
+                "</div>",
                 "<button class='btn btn-success save'>Save Note</button>",
                 "</div>"
             ].join("");
-            
+
             bootbox.dialog({
                 message: modalText,
                 closeButton: true
