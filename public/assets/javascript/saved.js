@@ -38,7 +38,7 @@ $(document).ready(function () {
                         "<h5 class='card-title'>" +article.headline+ " </h5></a>",
                         "<h6>"+article.author+"</h6>",
                         "<button type='button' class='btn btn-sm btn-outline-danger delete'>Delete</button>",
-                        "<button type='button' class='btn btn-sm btn-outline-info notes'>Article notes</button>",
+                        "<button type='button' class='btn btn-sm btn-outline-info notes'>Add notes</button>",
                     "</div>",
                 "</div>"
             ].join("")

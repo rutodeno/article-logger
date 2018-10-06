@@ -7,6 +7,10 @@ html {
     min-height: 100%;
 }
 
+body {
+    margin-bottom: 80px;
+    background-image: url(../Images/swirl.png)
+}
 
 a.navbar-brand {
     font-size: 36px;
@@ -44,7 +48,7 @@ a.navbar-brand {
 }
 
 .centered {
-    position: absolute;
+    position: absolute; 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -91,14 +95,17 @@ textarea {
 li.list-group-item.note {
     margin-bottom: 10px;
 }
-.note-delete {
+.btn.notes, .note-delete {
     margin-left: 10px;
 }
-.page-footer {
+
+.footer {
     clear: both;
     overflow: auto;
-    color: black;
-    padding: 20px 0;
+    background-color: black;
+    color: #ffffff;
+    padding-top: 30px;
+    padding-bottom: 20px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;

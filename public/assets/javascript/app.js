@@ -37,7 +37,7 @@ $(document).ready(function() {
                     "<div class='card-body '>",
                         "<a href = 'https://www.desiringgod.org"+data.link+"' target='_blank'>",
                         "<h5 class='card-title'>" +data.headline+ " </h5></a>",
-                        "<h6>"+data.author+"</h6>",
+                        "<h6> Author: "+data.author+"</h6>",
                         "<button type='button' class='btn btn-sm btn-outline-success save'>Save Article</button>",
                     "</div>",
                 "</div>"
