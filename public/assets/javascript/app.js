@@ -20,14 +20,8 @@ $(document).ready(function() {
 
 
     function renderArticles(articles) {
-        let articleCards = [];
-        for(let i = 0; i < articles.length; i++) {
-            
-            articleCards.push(createCard(articles[i]));
-        }
-
+        let articleCards = articles.map(createCard);
         articleContainer.append(articleCards);
-
     }
 
     function createCard(data) {
@@ -43,11 +37,8 @@ $(document).ready(function() {
                 "</div>"
             ].join("")
         );
-
         card.data("_id", data._id);
-
         return card;
-
     };
 
     function renderEmpty() {
@@ -88,7 +79,6 @@ $(document).ready(function() {
             }
         });
     }
-
 
     function handleArticleScrape() {
         $.get("/api/fetch")

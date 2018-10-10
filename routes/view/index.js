@@ -8,4 +8,7 @@ router.get("/saved", function(req, res) {
     res.render("saved");
 })
 
+router.get("/aboutUs", function(req, res) {
+    res.render("aboutUs");
+})
 module.exports =  router;

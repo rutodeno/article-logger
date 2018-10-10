@@ -20,12 +20,7 @@ $(document).ready(function () {
     }
 
     function renderArticles(articles) {
-        let articleCards = [];
-
-        for (let i = 0; i < articles.length; i++) {
-            articleCards.push(createCard(articles[i]));
-        }
-
+        let articleCards = articles.map(createCard);
         articleContainer.append(articleCards);
     }
 
@@ -36,7 +31,7 @@ $(document).ready(function () {
                     "<div class='card-body '>",
                         "<a href = 'https://www.desiringgod.org"+article.link+"' target='_blank'>",
                         "<h5 class='card-title'>" +article.headline+ " </h5></a>",
-                        "<h6>"+article.author+"</h6>",
+                        "<h6> Author: "+article.author+"</h6>",
                         "<button type='button' class='btn btn-sm btn-outline-danger delete'>Delete</button>",
                         "<button type='button' class='btn btn-sm btn-outline-info notes'>Add notes</button>",
                     "</div>",
